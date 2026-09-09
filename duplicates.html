@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Review Duplicate Tabs</title>
+  <link rel="stylesheet" href="duplicates.css" />
+</head>
+<body>
+  <main class="page">
+    <header>
+      <h1>Duplicate tabs</h1>
+      <p id="summary" role="status" aria-live="polite">Scanning your tabs&hellip;</p>
+    </header>
+
+    <div class="toolbar">
+      <button id="select-all" type="button" class="secondary">Select all</button>
+      <button id="select-none" type="button" class="secondary">Clear selection</button>
+      <button id="close-selected" type="button" class="primary" disabled>
+        Close selected duplicates
+      </button>
+    </div>
+
+    <p class="hint">
+      For each group you select, the oldest tab is kept open and the rest are closed.
+    </p>
+
+    <form id="groups" aria-label="Duplicate tab groups"></form>
+  </main>
+  <script src="duplicates.js"></script>
+</body>
+</html>

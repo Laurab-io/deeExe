@@ -1,0 +1,67 @@
+:root {
+  /* Green with white text at ~5:1 contrast ratio (WCAG AA for normal text) */
+  --green: #1a7f37;
+  --green-hover: #166b2f;
+  --green-active: #135c29;
+  --text: #1f2328;
+  --muted: #59636e;
+  --focus-ring: #0969da;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: var(--text);
+  background: #ffffff;
+}
+
+.popup {
+  width: 280px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+h1 {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+#status {
+  font-size: 13px;
+  color: var(--muted);
+  min-height: 18px;
+}
+
+#find-duplicates {
+  appearance: none;
+  border: none;
+  border-radius: 8px;
+  background: var(--green);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: background 120ms ease;
+}
+
+#find-duplicates:hover {
+  background: var(--green-hover);
+}
+
+#find-duplicates:active {
+  background: var(--green-active);
+}
+
+/* Visible focus indicator for keyboard users (WCAG 2.4.7) */
+#find-duplicates:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
