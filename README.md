@@ -48,7 +48,7 @@ This extension doesn't auto-update. To get a new version, download the ZIP again
 
 The extension uses only the `tabs` permission, to read tab URLs and titles so it can find duplicates. Nothing is collected, stored, or sent anywhere — everything happens locally in your browser. (Chrome's install warning about "reading browsing history" is its blanket phrasing for any extension that can see tab URLs.)
 
-The full privacy policy lives in [PRIVACY.md](PRIVACY.md) — link to that file when the Chrome Web Store dashboard asks for a privacy policy URL.
+The full privacy policy lives in [PRIVACY.md](PRIVACY.md)
 
 ## Releasing
 
