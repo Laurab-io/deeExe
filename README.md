@@ -48,6 +48,28 @@ This extension doesn't auto-update. To get a new version, download the ZIP again
 
 The extension uses only the `tabs` permission, to read tab URLs and titles so it can find duplicates. Nothing is collected, stored, or sent anywhere — everything happens locally in your browser. (Chrome's install warning about "reading browsing history" is its blanket phrasing for any extension that can see tab URLs.)
 
+The full privacy policy lives in [PRIVACY.md](PRIVACY.md) — link to that file when the Chrome Web Store dashboard asks for a privacy policy URL.
+
+## Releasing
+
+To package a new version for the Chrome Web Store:
+
+1. Bump the version — the store rejects uploads that don't increment `manifest.json`'s version:
+
+   ```
+   scripts/bump-version.sh patch   # or minor / major
+   ```
+
+2. Build the zip. It contains only the shipped files (manifest, popup, review page, icons):
+
+   ```
+   scripts/build.sh
+   ```
+
+   The result lands in `dist/duplicate-tab-closer-v<version>.zip`. The `dist/` folder is gitignored — build artifacts are never committed.
+
+3. Upload the zip in the [Chrome Web Store developer dashboard](https://chrome.google.com/webstore/devconsole), then commit and tag the version bump.
+
 ## License
 
 [MIT](LICENSE)
