@@ -140,20 +140,85 @@ button.secondary:hover {
   flex-shrink: 0;
 }
 
-.group-title {
-  font-size: 15px;
-  font-weight: 600;
+/* Wrapper that anchors the click-to-open tooltip below a truncated title. */
+.title-wrap {
+  position: relative;
+  min-width: 0;
+}
+
+/* Titles are buttons: truncated text that opens a tooltip on click/tap. */
+.title-toggle {
+  appearance: none;
+  background: none;
+  border: none;
+  padding: 0;
+  display: block;
+  max-width: 100%;
+  text-align: left;
+  font: inherit;
+  cursor: pointer;
+  border-radius: 4px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
+.title-toggle:hover {
+  text-decoration: underline;
+}
+
+.title-toggle:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+.title-tooltip {
+  position: absolute;
+  top: calc(100% + 14px);
+  left: 0;
+  z-index: 10;
+  background: var(--text);
+  color: #ffffff;
+  font-size: 13px;
+  line-height: 1.4;
+  padding: 8px 12px;
+  border-radius: 6px;
+  max-width: min(480px, 80vw);
+  width: max-content;
+  word-break: break-word;
+  white-space: normal;
+  box-shadow: 0 4px 12px rgba(31, 35, 40, 0.25);
+}
+
+.group-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+}
+
 .group-url {
+  /* A real link: opens the page in a new tab. */
+  display: block;
+  max-width: 100%;
   font-size: 13px;
   color: var(--muted);
+  text-decoration: none;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  border-radius: 4px;
+  margin-top: 4px;
+}
+
+/* Hover affordance only for actual links (non-http URLs render as spans). */
+a.group-url:hover {
+  color: var(--focus-ring);
+  text-decoration: underline;
+}
+
+.group-url:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
 }
 
 .group-meta {
@@ -174,24 +239,31 @@ button.secondary:hover {
 .group-tabs {
   list-style: none;
   border-top: 1px solid var(--border);
-  padding: 8px 16px 12px 46px;
+  padding: 12px 16px 12px 46px;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 12px;
 }
 
 .group-tabs li {
-  font-size: 13px;
-  color: var(--muted);
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
-.group-tabs li.kept::after {
-  content: " (will stay open)";
-  color: var(--green);
+.tab-title {
+  font-size: 13px;
+  color: var(--text);
+}
+
+.tab-status {
+  font-size: 12px;
   font-weight: 600;
+  color: var(--muted);
+}
+
+.tab-status.kept {
+  color: var(--green);
 }
 
 .empty {
